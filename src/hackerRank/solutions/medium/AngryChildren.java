@@ -11,20 +11,22 @@ public class AngryChildren {
 		int k = sc.nextInt();
 		
 		int[] inputValues = new int[inputCounter];
-		int minSub = 1000000;
+		int minSub = 999999999;
 		
 		for(int i = 0; i < inputCounter; i++){
 			inputValues[i] = sc.nextInt();
 		}
-		Arrays.sort(inputValues);
+		Arrays.parallelSort(inputValues);
+		
+		
 		
 		int currentMax;
 		int currentMin;
 		for(int i = 0; i < inputValues.length-k+1; i++){
-			currentMax = 0;
-			currentMin = 100000;
+			currentMax = -1;
+			currentMin = 999999999;
 			
-			for(int j = i; j < i+k; j++){
+			for(int j = i; j < i+k-1; j++){
 				if(inputValues[j] > currentMax){
 					currentMax = inputValues[j];
 				}
